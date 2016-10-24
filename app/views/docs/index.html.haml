@@ -1,2 +1,6 @@
 %h1 Docs#index
-%p Find me in app/views/docs/index.html.haml
+
+- @docs.each do |doc|
+    %h2= link_to doc.title, doc
+    %p= doc.content
+

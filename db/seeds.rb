@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'rubygems'
+require 'json'
+require 'faker'
+require 'populator'
+
+Dir[File.join(Rails.root, 'db', 'seed_data', '*.rb')].sort.each { |seed| load seed }

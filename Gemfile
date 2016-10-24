@@ -52,6 +52,7 @@ group :development, :test do
   #CHANGED
   gem 'factory_girl_rails'
   gem 'faker'
+  gem 'populator'
   gem 'rspec-rails'
   gem 'rerun'
 end

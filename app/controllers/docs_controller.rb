@@ -1,12 +1,13 @@
 class DocsController < ApplicationController  
+  #Before you exectute any of the only: commands, run :find_doc
+  before_action :find_doc, only: [:show, :edit, :update, :destroy]
+
   def index
+    
+    @docs = Doc.all.order("created_at DESC")    
   end
 
-  def show
-  end
-
-  def edit
-  end
+  def show; end
 
   def new
     @doc = Doc.new
@@ -21,18 +22,20 @@ class DocsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
   end
 
   def destroy
+    @doc.destroy
+    redirect_to @doc, alert: "Successfully deleted task."
   end
   
   private
 
   def find_doc
+    @doc = Doc.find(params[:id])
   end
 
   def doc_params
