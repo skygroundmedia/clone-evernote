@@ -11,6 +11,8 @@ namespace :app do
     sh %{  rails g devise:views }
     # Convert Devise's ERB to HAML
     sh %{ rake html:erb2haml }
+    # Create a Devise user
+    sh %{ rails g devise User }
   end
 end
 
