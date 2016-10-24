@@ -13,6 +13,9 @@ namespace :app do
     sh %{ rake html:erb2haml }
     # Create a Devise user
     sh %{ rails g devise User }
+    sh %{ rails g migration add_user_id_to_docs user_id:integer }
+    sh %{  }
+    sh %{  }
+    sh %{  }    
   end
 end
-
