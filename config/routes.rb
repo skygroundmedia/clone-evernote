@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :docs
-  root to: 'docs#index'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
+  resources :docs
+  
+  #User is logged in
+  authenticated :user do
+    root "docs#index", as: "authenticated_root"
+  end
+
+  #User is not logged in
+  root to: 'visitors#index'
 end

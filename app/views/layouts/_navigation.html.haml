@@ -8,3 +8,5 @@
     #exCollapsingNavbar2.collapse.navbar-toggleable-xs
       = link_to "Rails bootstrap", root_path, class: 'navbar-brand'
       %ul.nav.navbar-nav= render 'layouts/navigation_links'
+      %ul.nav.navbar-nav
+        %li= link_to "New", '/docs/new'
