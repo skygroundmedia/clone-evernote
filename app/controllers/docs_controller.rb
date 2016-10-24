@@ -3,7 +3,6 @@ class DocsController < ApplicationController
   before_action :find_doc, only: [:show, :edit, :update, :destroy]
 
   def index
-    
     @docs = Doc.all.order("created_at DESC")    
   end
 
@@ -25,6 +24,13 @@ class DocsController < ApplicationController
   def edit; end
 
   def update
+    #If a save is done, redirect
+    if @doc.update(doc_params)
+      redirect_to @doc
+    # Redirect is a new HTTP request
+    else
+      render 'edit'
+    end
   end
 
   def destroy

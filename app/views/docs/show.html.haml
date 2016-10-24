@@ -2,3 +2,9 @@
 
 %h1= @doc.title
 %p= @doc.content
+
+#links
+  = link_to "Home", root_path, class: "btn btn-sm btn-default"
+  = link_to "Edit", edit_doc_path(@doc), class: "btn btn-sm btn-default"
+  = link_to "Delete", doc_path(@doc), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-sm btn-default"
+  
