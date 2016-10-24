@@ -31,7 +31,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #CHANGED
 gem 'bootstrap', '~> 4.0.0.alpha3.1'
-gem 'haml-rails'
+gem 'devise', '~> 4.2'
+gem 'haml-rails', '~> 0.9.0'
 gem 'high_voltage'
 gem 'pg'
 
