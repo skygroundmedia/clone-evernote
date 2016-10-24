@@ -10,6 +10,8 @@ module EvernoteClone
   class Application < Rails::Application
 
     config.generators do |g|
+      #CHANGED - This autocreates HAML files
+      g.template_engine :haml
       g.test_framework :rspec,
         fixtures: true,
         view_specs: false,

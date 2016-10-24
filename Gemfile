@@ -55,6 +55,8 @@ group :development, :test do
   gem 'populator'
   gem 'rspec-rails'
   gem 'rerun'
+  #gem 'html2haml'
+  gem 'erb2haml'
 end
 
 group :production do
