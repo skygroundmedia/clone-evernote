@@ -1,2 +1,4 @@
-%li= link_to "Sign Up", "/users/sign_up"
-%li= link_to "Sign In", "/users/sign_in"
+- if user_signed_in?
+  %li= link_to "Sign Out", destroy_user_session_path, method: :delete
+- else
+  %li= link_to "Log In", new_user_session_path

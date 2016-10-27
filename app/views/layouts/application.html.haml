@@ -9,11 +9,14 @@
     = csrf_meta_tags
   %body
     %header
-      = render 'layouts/navigation'
+      .header_inner
+        = render 'layouts/navigation'
+
     %main{:role => "main"}
       = render 'layouts/messages'
-      
+
       %p.notice= notice
       %p.alert= alert
-      
+
       = yield
+      

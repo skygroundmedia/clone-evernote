@@ -1,12 +1,31 @@
--# navigation styled for Bootstrap 3.0
-.container
-  %nav.navbar.navbar-dark.bg-inverse
-    %ul.nav.navbar-nav.clearfix
-      %li.nav-item
-        %button.navbar-toggler.hidden-sm-up.nav-link{"aria-controls" => "exCollapsingNavbar2", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#exCollapsingNavbar2", "data-toggle" => "collapse", :type => "button"}
-          \ &#9776;
-    #exCollapsingNavbar2.collapse.navbar-toggleable-xs
-      = link_to "Rails bootstrap", root_path, class: 'navbar-brand'
-      %ul.nav.navbar-nav= render 'layouts/navigation_links'
-      %ul.nav.navbar-nav
-        %li= link_to "New", '/docs/new'
+%nav.navbar.navbar-light.bg-faded
+  %a.navbar-brand{:href => root_path}
+    %img{:alt => "", :height => "30", :src => "http://placehold.it/30x30", :width => "30"}
+  %ul.nav.navbar-nav
+    %li.nav-item.active
+      %a.nav-link{:href => root_path}
+        Home
+        %span.sr-only (current)
+
+    - if user_signed_in?
+      %li.nav-item.dropdown
+        %a#supportedContentDropdown
+          .nav-link
+          .dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "/users"} Documents
+        .dropdown-menu{"aria-labelledby" => "supportedContentDropdown"}
+          %a.dropdown-item{:href => docs_path } All
+          %a.dropdown-item{:href => new_doc_path } New
+    - else
+
+  %ul.nav.navbar-nav(style="float:right;")
+    - if user_signed_in?
+      %li.nav-item.dropdown
+        %a#supportedContentDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#"} My Account
+        .dropdown-menu{"aria-labelledby" => "supportedContentDropdown"}
+          %a.dropdown-item{:href => edit_user_registration_path } My Account
+          = link_to "Sign Out", destroy_user_session_path, method: :delete, class: "dropdown-item"
+    - else
+      %li.nav-item.dropdown
+        %a.dropdown-item{:href => new_user_session_path } Log In
+        %a.dropdown-item{:href => new_user_registration_path } Sign Up
+
