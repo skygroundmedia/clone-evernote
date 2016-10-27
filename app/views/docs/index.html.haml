@@ -1,8 +1,15 @@
 %h1 Recent Documents
 
-- @docs.each do |doc|
-    %h2= link_to doc.title, doc
-    %p= time_ago_in_words(doc.created_at)    
-    %p= truncate(doc.content, length: 50)
-
-= link_to "Create New Docuement", new_doc_path
+.wrapper_with_padding
+  #docs.clearfix
+    - unless @docs.blank?  
+      - @docs.each do |doc|
+        %a{ href: (url_for [doc]) }
+          .doc 
+            %p.title= doc.title
+            %p.date= time_ago_in_words(doc.created_at)    
+            %p.content= truncate(doc.content, length: 50)
+    - else 
+      %h2 Create a document!
+      %p Start creating your documents and organize your life!
+      %button= link_to "Create New Doc", new_doc_path

@@ -9,9 +9,7 @@
 
     - if user_signed_in?
       %li.nav-item.dropdown
-        %a#supportedContentDropdown
-          .nav-link
-          .dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "/users"} Documents
+        %a#supportedContentDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "/users"} Documents
         .dropdown-menu{"aria-labelledby" => "supportedContentDropdown"}
           %a.dropdown-item{:href => docs_path } All
           %a.dropdown-item{:href => new_doc_path } New
